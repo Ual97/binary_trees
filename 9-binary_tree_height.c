@@ -9,7 +9,7 @@ size_t binary_tree_height(const binary_tree_t *tree)
     size_t rightsum;
 
     if (!tree)
-        return NULL;
+        return (NULL);
     if (!(tree->left) || !(tree->right))
         return (0);
     leftsum = binary_tree_height(tree->left);
