@@ -3,23 +3,14 @@
 #include "binary_trees.h"
 
 /**
- * print_num - Prints a number
- *
- * @n: Number to be printed
- */
-void print_num(int n)
-{
-    printf("%d\n", n);
-}
-
-/**
  * main - Entry point
  *
  * Return: Always 0 (Success)
  */
 int main(void)
 {
-	binary_tree_t *root;
+    binary_tree_t *root;
+    int balance;
 
     root = binary_tree_node(NULL, 98);
     root->left = binary_tree_node(root, 12);
@@ -32,6 +23,11 @@ int main(void)
     binary_tree_insert_left(root->left->left->left, 8);
     binary_tree_print(root);
 
-	binary_tree_preorder(root, &print_num);
+    balance = binary_tree_balance(root);
+    printf("Balance of %d: %+d\n", root->n, balance);
+    balance = binary_tree_balance(root->right);
+    printf("Balance of %d: %+d\n", root->right->n, balance);
+    balance = binary_tree_balance(root->left->left->right);
+    printf("Balance of %d: %+d\n", root->left->left->right->n, balance);
     return (0);
 }
