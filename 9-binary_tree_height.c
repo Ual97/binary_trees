@@ -9,13 +9,13 @@ size_t binary_tree_height(const binary_tree_t *tree)
     size_t rightsum;
 
     if (!tree)
-        return (NULL);
-    if (!(tree->left) || !(tree->right))
+        return (0);
+    if (!(tree->left) && !(tree->right))
         return (0);
     leftsum = binary_tree_height(tree->left);
     rightsum = binary_tree_height(tree->right);
     if (rightsum >= leftsum)
-        return (rightsum++);
+        return (rightsum + 1);
     else
-        return (leftsum++);
+        return (leftsum + 1);
 }
