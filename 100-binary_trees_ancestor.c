@@ -11,10 +11,11 @@ const binary_tree_t *second)
 	binary_tree_t *path1[1024], *path2[1024], *marker, *f, *s;
 	int i, j;
 
-	f = (binary_tree_t *)first;
-	s = (binary_tree_t *)second;
 	if (!second || !first)
 		return (NULL);
+	marker = NULL;
+	f = (binary_tree_t *)first;
+	s = (binary_tree_t *)second;
 	/* last element will be NULL*/
 	for (i = 0; f; i++)
 	{
